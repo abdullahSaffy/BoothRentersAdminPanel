@@ -1,0 +1,70 @@
+<!-- ========== Left Sidebar Start ========== -->
+
+<div class="left side-menu">
+  <div class="sidebar-inner slimscrollleft">
+    <div id="sidebar-menu">
+      <ul>
+
+        <li class="has_sub <%= (controller == 'auth') ? 'active' : '' %>">
+          <a href="<%= site_url %>" class="waves-effect"><i class="fa fa-tachometer "></i><span>Dashboard
+            </span></a>
+        </li>
+
+        <li class="has_sub <%= (controller == 'user') ? 'active' : '' %>">
+          <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-user"></i><span>Users
+            </span>
+            <span class="menu-arrow"></span></a>
+          <ul class="list-unstyled">
+            <li><a href="<%= site_url %>user/add">Add</a></li>
+            <li><a href="<%= site_url %>user/">List</a></li>
+          </ul>
+        </li>
+
+
+        <li class="has_sub <%= (controller == 'barber') ? 'active' : '' %>">
+          <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-cut"></i><span>Barber
+            </span>
+            <span class="menu-arrow"></span></a>
+          <ul class="list-unstyled">
+            <li><a href="<%= site_url %>barber/add">Add</a></li>
+            <li><a href="<%= site_url %>barber/">List</a></li>
+          </ul>
+        </li>
+
+        <li class="has_sub <%= (controller == 'request') ? 'active' : '' %>">
+          <a href="<%= site_url %>request" class="waves-effect"><i class=" fa fa-shopping-cart"></i><span>Request Manager
+            </span></a>
+        </li>
+
+        <li class="has_sub <%= (controller == 'booking') ? 'active' : '' %>">
+          <a href="<%= site_url %>booking" class="waves-effect"><i class=" fa fa-shopping-cart"></i><span>Appointment Manager
+            </span></a>
+        </li>
+        
+        <li class="has_sub <%= (controller == 'report') ? 'active' : '' %>">
+          <a href="<%= site_url %>report" class="waves-effect"><i class="fa fa-file-text"></i><span>Report Manager
+            </span></a>
+        </li>
+
+        <li class="has_sub <%= (controller == 'payment') ? 'active' : '' %>">
+          <a href="<%= site_url %>payment" class="waves-effect"><i class="fa fa-paypal"></i><span>Payment Manager
+            </span></a>
+        </li>
+
+        <li class="has_sub <%= (controller == 'content') ? 'active' : '' %>">
+          <a href="<%= site_url %>content" class="waves-effect"><i class="fa  fa-file-text-o"></i><span>Contents
+            </span></a>
+        </li>
+
+        <li class="has_sub <%= (controller == 'setting') ? 'active' : '' %>">
+          <a href="<%= site_url %>setting" class="waves-effect"><i class="fa fa-cog"></i><span>Settings
+            </span></a>
+        </li>
+
+      </ul>
+      <div class="clearfix"></div>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+</div>
+<!-- Left Sidebar End -->

@@ -1,0 +1,40 @@
+<% layout('./layouts/admin') %>
+    <div class="row">
+        <div class="col-sm-12">
+            <h4 class="page-title">Barber Manager</h4>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="<%= dashboard %>">Dashboard</a></li>
+                <li class="breadcrumb-item active">Barber Manager</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="row">
+                <h4 class="m-t-0 m-b-20 header-title col-lg-11"></h4>
+                <button class="btn btn-primary-export col-lg-1 m-b-20" id="barberListExports">Export</button>
+            </div>
+            <div class="card-box" style="overflow:scroll;">
+           
+                <h4 class="m-t-0 m-b-20 header-title">All Barber</h4>
+
+                <table id="barber-datatable" class="table table-bordered table-service" style="width: 100% !important;">
+                    <thead>
+                        <tr>
+                            <th>S No</th>
+                            <th>Name</th>
+                            <th>Shop Name</th>
+                            <th>Mobile</th>
+                            <th>Shop Image</th>
+                            <th>Total Appointment</th>
+                            <th>Created At</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>

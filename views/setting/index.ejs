@@ -1,0 +1,273 @@
+<% layout('./layouts/list') -%>
+    <div class="row">
+        <div class="col-sm-12">
+            <h4 class="page-title">Add Setting</h4>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="<%= dashboard %>">Dashboard</a></li>
+                <li class="breadcrumb-item active">Setting Manager</li>
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card-box">
+
+                <form class="forms-sample" id="settingForm" method="post">
+                    <input type="hidden" name="_id" class="form-control"
+                        value="<%= (setting && setting._id)? setting._id : '' %>">
+
+                        <div class="col-sm-12">
+                            <h4 style="margin-top: 20px; margin-bottom: 20px;" class="page-title">User Settings</h4>
+                        </div>
+
+                    <div class="row">
+                        <div class="form-group  col-lg-6">
+                            <label for="ios_version">Ios Version<span class="text-danger">*</span></label>
+                            <input type="hidden" name="_id" class="form-control"
+                            value="<%= (setting && setting._id)? setting._id : '' %>">
+                            <input type="text" name="ios_version" class="form-control"
+                                value="<%= (setting && setting.ios_version)? setting.ios_version : '' %>">
+                            <div class="text-danger ios_version w-100"></div>
+                        </div>
+                        <div class="form-group  col-lg-6">
+                            <label for="ios_link">Ios Link<span class="text-danger">*</span></label>
+                            <input type="text" name="ios_link" class="form-control"
+                                value="<%= (setting && setting.ios_link)? setting.ios_link : '' %>">
+                            <div class="text-danger ios_link w-100"></div>
+                        </div>
+
+                      
+
+                        <div class="col-lg-6 m-t-10">
+
+                            <div class="form-check form-check-flat no-left-padding">
+                                <label for="ios_force_update" class="col-md-4">Ios Force Update</label>
+                                <input type="checkbox" name="ios_force_update" value=1 class="form-check-input"
+                                    <%=setting && setting.ios_force_update==true ? 'checked="checked"' : '' %>>
+                            </div>
+                            <div class="text-danger ios_force_update w-100"></div>
+                        </div>
+
+                        <div class="col-lg-12">
+                            <hr>
+                        </div>
+
+                        <div class="form-group  col-lg-6">
+                            <label for="android_version">Android Version<span class="text-danger">*</span></label>
+                            <input type="text" name="android_version" class="form-control"
+                                value="<%= (setting && setting.android_version)? setting.android_version : '' %>">
+                            <div class="text-danger android_version w-100"></div>
+                        </div>
+                        <div class="form-group  col-lg-6">
+                            <label for="android_link">Android Link<span class="text-danger">*</span></label>
+                            <input type="text" name="android_link" class="form-control"
+                                value="<%= (setting && setting.android_link)? setting.android_link : '' %>">
+                            <div class="text-danger android_link w-100"></div>
+                        </div>
+
+                        <div class="col-lg-6  m-t-10">
+                            <div class="form-check form-check-flat no-left-padding">
+                                <label for="android_force_update" class="col-md-5">Android Force Update</label>
+
+                                <input type="checkbox" name="android_force_update" class="form-check-input" value=1
+                                    <%=setting && setting.android_force_update==true ? 'checked="checked"' : '' %>>
+                            </div>
+                            <div class="text-danger android_force_update w-100"></div>
+                        </div>
+                    </div>
+
+                    <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+                    <div class="col-sm-12">
+                        <h4 style="margin-top: 20px; margin-bottom: 20px;" class="page-title">Barber Settings</h4>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group  col-lg-6">
+                            <label for="ios_version_barber">Ios Version<span class="text-danger">*</span></label>
+                            <input type="hidden" name="_id" class="form-control"
+                            value="<%= (setting && setting._id)? setting._id : '' %>">
+                            <input type="text" name="ios_version_barber" class="form-control"
+                                value="<%= (setting && setting.ios_version_barber)? setting.ios_version_barber : '' %>">
+                            <div class="text-danger ios_version_barber w-100"></div>
+                        </div>
+                        <div class="form-group  col-lg-6">
+                            <label for="ios_link_barber">Ios Link<span class="text-danger">*</span></label>
+                            <input type="text" name="ios_link_barber" class="form-control"
+                                value="<%= (setting && setting.ios_link_barber)? setting.ios_link_barber : '' %>">
+                            <div class="text-danger ios_link_barber w-100"></div>
+                        </div>
+
+                        <div class="col-lg-6 m-t-10">
+
+                            <div class="form-check form-check-flat no-left-padding">
+                                <label for="ios_force_update_barber" class="col-md-4">Ios Force Update</label>
+                                <input type="checkbox" name="ios_force_update_barber" value=1 class="form-check-input"
+                                    <%=setting && setting.ios_force_update_barber==true ? 'checked="checked"' : '' %>>
+                            </div>
+                            <div class="text-danger ios_force_update_barber w-100"></div>
+                        </div>
+
+                        <div class="col-lg-12">
+                            <hr>
+                        </div>
+
+                        <div class="form-group  col-lg-6">
+                            <label for="android_version_barber">Android Version<span class="text-danger">*</span></label>
+                            <input type="text" name="android_version_barber" class="form-control"
+                                value="<%= (setting && setting.android_version_barber)? setting.android_version_barber : '' %>">
+                            <div class="text-danger android_version_barber w-100"></div>
+                        </div>
+                        <div class="form-group  col-lg-6">
+                            <label for="android_link_barber">Android Link<span class="text-danger">*</span></label>
+                            <input type="text" name="android_link_barber" class="form-control"
+                                value="<%= (setting && setting.android_link_barber)? setting.android_link_barber : '' %>">
+                            <div class="text-danger android_link_barber w-100"></div>
+                        </div>
+
+                        <div class="col-lg-6  m-t-10">
+                            <div class="form-check form-check-flat no-left-padding">
+                                <label for="android_force_update_barber" class="col-md-5">Android Force Update</label>
+
+                                <input type="checkbox" name="android_force_update_barber" class="form-check-input" value=1
+                                    <%=setting && setting.android_force_update_barber==true ? 'checked="checked"' : '' %>>
+                            </div>
+                            <div class="text-danger android_force_update_barber w-100"></div>
+                        </div>
+
+                        <div class="col-lg-12">
+                            <hr>
+                        </div>
+
+                    </div>
+
+                    <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+                    <div class="col-sm-12">
+                        <h4 style="margin-top: 20px; margin-bottom: 20px;" class="page-title">Admin Charges</h4>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group  col-lg-6">
+                            <label for="ios_link">Admin Charges<span class="text-danger">*</span></label>
+                            <input type="number" min="1" name="admin_charge" class="form-control"
+                                value="<%= (setting && setting.admin_charge)? setting.admin_charge : '' %>">
+                            <div class="text-danger admin_charge w-100"></div>
+                        </div>
+                    </div>
+
+
+                    <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+                    <div class="col-sm-12">
+                        <h4 style="margin-top: 20px; margin-bottom: 20px;" class="page-title">Maintenance</h4>
+                    </div>
+
+                    <div class="col-lg-6 m-t-10">
+                        <div style="margin-top: 4%;" class="form-check form-check-flat no-left-padding">
+                            <label for="maintenance_mode" class="col-md-4">Maintenance Mode</label>
+                            <input type="checkbox" name="maintenance_mode" class="form-check-input" value=1
+                                <%=setting && setting.maintenance_mode==true ? 'checked="checked"' : '' %>>
+                        </div>
+                        <div class="text-danger maintenance_mode w-100"></div>
+                    </div>
+
+
+                    <button type="submit" id="" class="btn btn-success mr-2 mt-4">
+                        Submit
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+
+        $(document).ready(function () {
+            //----------------Leadership Tool form------------------------//
+            $("#settingForm").validate({
+                errorPlacement: function (error, element) {
+                    const name = $(element).attr("name");
+                    error.appendTo($("." + name));
+                },
+                submitHandler: async function (form, event) {
+                    event.preventDefault();
+                    $(form).find(":submit").prop('disabled', 'disabled');
+                    await submitForm(form, window.location.href, 'POST', '/setting');
+                },
+                rules: {
+                    ios_version: {
+                        required: {
+                            depends: function () {
+                                $(this).val($(this).val().trimStart());
+                                return true;
+                            }
+                        }
+                    },
+                    ios_link: {
+                        required: {
+                            depends: function () {
+                                $(this).val($(this).val().trimStart());
+                                return true;
+                            }
+                        }
+                    },
+                    android_version: {
+                        required: {
+                            depends: function () {
+                                $(this).val($(this).val().trimStart());
+                                return true;
+                            }
+                        }
+                    },
+                    android_link: {
+                        required: {
+                            depends: function () {
+                                $(this).val($(this).val().trimStart());
+                                return true;
+                            }
+                        }
+                    },
+                    admin_charge: {
+                        required: {
+                            depends: function () {
+                                $(this).val($(this).val().trimStart());
+                                return true;
+                            }
+                        },
+                        digits: true
+                    },
+                    ios_version_barber: {
+                        required: {
+                            depends: function () {
+                                $(this).val($(this).val().trimStart());
+                                return true;
+                            }
+                        }
+                    },
+                    ios_link_barber: {
+                        required: {
+                            depends: function () {
+                                $(this).val($(this).val().trimStart());
+                                return true;
+                            }
+                        }
+                    },
+                    android_version_barber: {
+                        required: {
+                            depends: function () {
+                                $(this).val($(this).val().trimStart());
+                                return true;
+                            }
+                        }
+                    },
+                    android_link_barber: {
+                        required: {
+                            depends: function () {
+                                $(this).val($(this).val().trimStart());
+                                return true;
+                            }
+                        }
+                    },
+                },
+                messages: {},
+                ignore: ''
+            });
+        })
+    </script>

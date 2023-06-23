@@ -1,0 +1,35 @@
+<% layout('./layouts/admin') %>
+    <div class="row">
+        <div class="col-sm-12">
+            <h4 class="page-title">Appointment Manager</h4>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="<%= dashboard %>">Dashboard</a></li>
+                <li class="breadcrumb-item active">Appointment Manager</li>
+            </ol>
+        </div>
+    </div>
+    <% include ../partials/_booking-filter %>
+    <div class="row">
+        <div class="col-12">
+            <div class="card-box" style="overflow:scroll;">
+                <h4 class="m-t-0 m-b-20 header-title">All Appointments</h4>
+
+                <table id="booking-datatable" class="table table-bordered table-service" style="width: 100% !important;">
+                    <thead>
+                        <tr>
+                            <th>S No</th>
+                            <th>BookingId</th>
+                            <th>Customer</th>
+                            <th>Barber</th>
+                            <th>Date</th>
+                            <th>Amount</th>
+                            <th>created At</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>

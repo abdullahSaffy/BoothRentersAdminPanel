@@ -1,0 +1,489 @@
+<% layout('./layouts/admin') %>
+
+<style>
+    div.pac-container {
+    z-index: 99999999999 !important;
+}
+text-danger{
+    z-index: 99999999999 !important;
+}
+</style>
+    <div class="row">
+        <div class="col-sm-12">
+            <h4 class="page-title">Barber Manager</h4>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="<%= dashboard %>">Dashboard</a></li>
+
+                <li class="breadcrumb-item">
+                    <a href="<%= site_url %>barber">Barber Manager</a>
+                </li>
+                <li class="breadcrumb-item active">View Barber</li>
+            </ol>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-lg-12"> 
+            <ul class="nav nav-tabs tabs">
+                <li class="active tab">
+                    <a href="#home-2" data-toggle="tab" aria-expanded="false"> 
+                        <span class="visible-xs"><i class="fa fa-user"></i></span> 
+                        <span class="hidden-xs">Barber</span> 
+                    </a> 
+                </li> 
+                <li class="tab"> 
+                    <a href="#profile-2" data-toggle="tab" aria-expanded="false"> 
+                        <span class="visible-xs"><i class="fa fa-home"></i></span> 
+                        <span class="hidden-xs">Shop Info</span> 
+                    </a> 
+                </li> 
+            </ul> 
+            <div class="tab-content"> 
+                <div class="tab-pane active" id="home-2"> 
+                    <div class="row">
+                        <div class="col-lg-12">
+                         
+                                <div class="row">
+                                    <div class="col-lg-10">
+                                        <h4 class="m-t-0 m-b-20 header-title">Barber Details</h4>
+                                    </div>
+                                <div class="col-lg-6">
+                                    <div class="col-lg-12 m-t-10">
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <p><strong>Full Name:</strong></p>
+                                            </div>
+                                            <div class="col-lg-8">
+                                                <p>
+                                                    <%= user.fullName %>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 m-t-10">
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <p><strong>Gender :</strong></p>
+                                            </div>
+                                            <div class="col-lg-8">
+                                                <p>
+                                                    <%= user.gender %>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 m-t-10">
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <p><strong>Mobile No. :</strong></p>
+                                            </div>
+                                            <div class="col-lg-8">
+                                                <p>
+                                                    <%= user.mobile %>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 m-t-10">
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <p><strong>Email :</strong></p>
+                                            </div>
+                                            <div class="col-lg-8">
+                                                <p>
+                                                    <%= user.email ? user.email : "N/A" %>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12 m-t-10">
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <p><strong>is Profile Complete :</strong></p>
+                                            </div>
+                                            <div class="col-lg-8">
+                                                <p>
+                                                <%= user.isCompProfile %>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                
+                                    <div class="col-lg-12 m-t-10">
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <p><strong>Profile Picture :</strong></p>
+                                            </div>
+                                            <div class="col-lg-8">
+                                                <p>
+                                                    <% if(user.profilePicture) {%>
+                                                        <a href="<%= logo %>" target="_blank">Click here</a>
+                                                    <% } %>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12 m-t-10">
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <p><strong>Total Bookings :</strong></p>
+                                            </div>
+                                            <div class="col-lg-8">
+                                                <%= findTotalAppointment %>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12 m-t-10">
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <p><strong>Created At :</strong></p>
+                                            </div>
+                                            <div class="col-lg-8">
+                                                <%= FUNC.showDateFromString(user.createdAt, 'MMM DD YYYY' ), %>
+                                            </div>
+                                        </div>
+                                    </div>   
+                                </div>
+
+                            <div class="col-lg-6">
+                                <div class="col-lg-12 m-t-10">
+                                    <div class="row">
+                                      
+                                        <div style="margin: 0px auto;" class="col-lg-4">
+                                        <img class="logoImg" src="<%= logo %>">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                                </div>
+                        </div>
+                    </div>
+                </div> 
+                <div class="tab-pane" id="profile-2">
+                    <div class="row">
+                        <div class="col-lg-12">
+                         
+                                <div class="row">
+                                    <div class="col-lg-10">
+                                        <h4 class="m-t-0 m-b-20 header-title">Shop Details</h4>
+                                    </div>
+                                <div class="col-lg-6">
+                                    <div class="col-lg-12 m-t-10">
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <p><strong>Shop Name :</strong></p>
+                                            </div>
+                                            <div class="col-lg-8">
+                                                <p>
+                                                    <%= user.shop && user.shop.name ? user.shop.name : "-" %>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12 m-t-10">
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <p><strong>Address:</strong></p>
+                                            </div>
+                                            <div class="col-lg-8">
+                                                <p>
+                                                   <span id="addressSpan"> <%= user.shop && user.shop.googleAddress ? user.shop.googleAddress: "-" %> </span>                                              
+                                                    <button style="margin-left: 20px;" class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#custom-width-modal">Edit</button>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 m-t-10">
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <p><strong>logo :</strong></p>
+                                            </div>
+                                            <div class="col-lg-8">
+                                                <p>
+                                                    <% if( user.shop && user.shop.thumbImg) {%>
+                                                    <a href="<%= shopLogo %>" target="_blank">Click here</a>
+                                                    <% }else{  %>
+                                                        <a target="_blank">-</a>
+                                                    <% } %>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12 m-t-10">
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <p><strong>Experience :</strong></p>
+                                            </div>
+                                            <div class="col-lg-8">
+                                                <p>
+                                                    <%=user.shop && user.shop.experience ? user.shop.experience: "-" %>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                
+                
+                
+                                    <div class="col-lg-12 m-t-10">
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <p><strong>description :</strong></p>
+                                            </div>
+                                            <div class="col-lg-8">
+                                                <p>
+                                                    <%= user.shop && user.shop.description ? user.shop.description : "-" %>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-lg-12 m-t-10">
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <p><strong>Shop Profile Status:</strong></p>
+                                            </div>
+                                            <div class="col-lg-8">
+                                                <p>
+                                                    <%=user.shop && user.shop.ProfileCompleted ? user.shop.ProfileCompleted : 'false' %>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <% if(user.shop){ %>
+                                    <div class="col-lg-12 m-t-10">
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <p><strong>Created At :</strong></p>
+                                            </div>
+                                            <div class="col-lg-8">
+                                                <%= FUNC.showDateFromString(user.shop.createdAt, 'MMM DD YYYY' ), %>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12 m-t-10">
+                                        <div class="row">
+                                    <% if(user.shop && user.shop.status == false){ %>
+                                        <div class="col-lg-2">
+                                            <a href="/barber/confirmShop/<%= user.shop._id %>" class="btn btn-success">Confirm Shop</a>
+                                        </div>
+                                        <% } %>
+                                    </div>
+                                </div>
+                
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="col-lg-12 m-t-10">
+                                        <div class="row">
+                                          
+                                            <div style="margin: 0px auto;" class="col-lg-4">
+                                            <img class="logoImg" src="<%= shopLogo %>">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                
+                                    <div class="col-lg-12 m-t-10 ">
+                                        <h4>Portfolio</h4>
+                                    </div>
+                                    <div id="addressUser" imp !important;" class=" col-lg-12 table-responsive m-t-20">
+                                        <table class="table table-actions-bar ">
+                                            <thead>
+                                                <tr style="text-align: center;">
+                                                    <th>Name</th>
+                                                    <th>image</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <% if(user.shop.portfolio.length){ %>
+                                                    <% user.shop.portfolio.map((e)=>{ %>
+                                                        <tr style="text-align: center;">
+                                                            <td>
+                                                                <%= e.name %>
+                                                            </td>
+                                                            <td>
+                                                                <a href="<%= S3URL + e.image %>" target="_blank"><img class="ListImg" src="<%= S3URL + e.image %>"></a>
+                                                            </td>
+                                                        </tr>
+                                                    <% }) %>
+                                                    <%  } %>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    <div class="col-lg-12 m-t-10 ">
+                                        <h4>Availability Details</h4>
+                                    </div>
+                                    <div id="addressUser" imp !important;" class=" col-lg-12 table-responsive m-t-20">
+                                        <table class="table table-actions-bar ">
+                                            <thead>
+                                                <tr style="text-align: center;">
+                                                    <th>Day</th>
+                                                    <th>Start Time</th>
+                                                    <th>End Time</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <% if(user.shop.availability.length){ %>
+                                                    <% user.shop.availability.map((e)=>{ %>
+                                                    <tr style="text-align: center;">
+                                                        <td class="multiline tableWidth">
+                                                            <%= e.day %>
+                                                        </td>
+                                                        <td class="multiline tableWidth">
+                                                            <%= e.startTime %>
+                                                        </td>
+                                                        <td class="tableWidth">
+                                                            <%= e.endTime %>
+                                                        </td>
+                                                    </tr>
+                                                    <% }) %>
+                                                    <%  } %>
+                                            </tbody>
+                                        </table>
+                                    </div>  
+                                    <% } %>                                  
+                                </div>
+                        </div>
+                    </div>
+                </div> 
+                             		<!-- sample modal content -->
+                                     <div id="custom-width-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="custom-width-modalLabel" aria-hidden="true" style="display: none;">
+                                        <div class="modal-dialog" style="width:55%;">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                </div>
+                                                <form id="update-address" enctype="multipart/form-data">
+                                                <div class="modal-body">
+                                                    <div class="form-group col-lg-12">                   
+                                                        <div class=" col-form-label">
+                                                            <label for="address">Address <span class="text-danger">*</span></label>
+                                                        </div>
+                                                        <div class=" input-group ">
+                                                                <input type="text" name="address" id="searchAddress" class="form-control" autocomplete="off">
+                                                                <input type="hidden" name="coordinates" id="addressCoordinates" autocomplete="off">
+                                                                <input type="hidden" name="currUrl" id="currUrl" class="form-control" autocomplete="off">
+                                                                <div id="message" class="text-danger address w-100"></div>
+                                                          </div>      
+                                                         </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
+                                                    <button
+                                                    type="submit"
+                                                    id="submit"
+                                                    class="btn btn-primary waves-effect waves-light"
+                                                  >
+                                                    Submit
+                                                  </button> 
+                                                </div>
+                                            </form>
+                                            </div><!-- /.modal-content -->
+                                        </div><!-- /.modal-dialog -->
+                                    </div><!-- /.modal -->    
+            </div> 
+        </div> 
+    </div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.0/jquery.validate.min.js"></script>
+<script src="https://cdn.syncfusion.com/js/assets/external/jsrender.min.js"></script>
+<script src="https://cdn.syncfusion.com/16.4.0.52/js/web/ej.web.all.min.js"></script>
+
+<script>
+
+        $('#searchAddress').on('change', function () {
+        if ($('#addressCoordinates').val() == "") {
+          $('#message').html('Please enter a Valid Adderss.').css('color', 'red');
+        }
+        else{
+          $('#message').html('').css('color', 'green');
+          document.getElementById("currUrl").value = window.location.href;
+        }
+      });
+    
+        function searchAddressInit() {
+                const $input = document.getElementById('searchAddress');
+                const $addressCoordinates = $('#addressCoordinates');
+                const autocomplete = new google.maps.places.Autocomplete($input);
+                autocomplete.addListener('place_changed', () => {
+                    const place = autocomplete.getPlace();
+                    $addressCoordinates.val(`${place.geometry.location.lng().toFixed(6)},${place.geometry.location.lat().toFixed(6)}`);
+                    $($input).trigger('change');
+                    // $("#add-product").data('validator').element('#searchAddress').valid();
+                });
+        }
+
+    $("#update-address").validate({
+      errorPlacement: function (error, element) {
+        const name = $(element).attr("name");
+        error.appendTo($("." + name));
+      },
+      submitHandler: async function (form, event) {
+        event.preventDefault();
+        $(form).find(":submit").prop("disabled", "disabled");
+        <% if(user.shop && user.shop._id) { %>
+            let redirectUrl = "<%=process.env.SITE_URL %>barber/edit/<%= user.shop._id %>";      
+            console.log('redirectUrl',form, window.location.href);
+        <% } %>
+        //let currUrl = window.location.href;
+        $.ajax({
+                url: redirectUrl,
+                type: "POST",
+                data: $("#update-address").serialize(),
+                dataType: "json",
+                success: function (res) {
+                    console.log(res)
+                    if (res.success==true) {
+                        //alert("Success")
+                        $("#addressSpan").text(res.address)
+                        $("#submit").prop("disabled", false);
+                        $(".close").trigger('click')
+                    }
+                },
+                error: function (res) {
+                   
+                }
+            });
+
+
+        //await submitForm(form, redirectUrl, "PUT", "/barber");
+      },
+      rules: {
+        address: {
+          required: {
+            depends: function () {
+              $(this).val($(this).val().trimStart());
+              return true;
+            },
+          },
+        },
+        coordinates: {
+          required: {
+            depends: function () {
+              $(this).val($(this).val().trimStart());
+              return true;
+            },
+          },
+        }
+      },
+      messages: {},
+      ignore: "",
+    });
+    
+
+    </script>
+        
+        
+          <script src="https://maps.googleapis.com/maps/api/js?key=<%= process.env.GOOGLE_PLACES_KEY %>&libraries=places&callback=searchAddressInit"></script>
+    

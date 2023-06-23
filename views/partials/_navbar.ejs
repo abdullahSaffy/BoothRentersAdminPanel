@@ -1,0 +1,47 @@
+<!-- Top Bar Start -->
+<div class="topbar">
+
+    <!-- LOGO -->
+    <div class="topbar-left">
+        <div class="text-center">
+            <div class="text-center">
+                <!-- Image Logo here -->
+                <a href="<%= site_url %>" class="logo">
+                    <!-- <% if(logo){ %> -->
+                        <i class="icon-c-logo"> <img src="/images/favicon.png" height="18" /> </i>
+                        <span><img style="border-radius: 50%;" src="/images/favicon.png" height="36" /></span>
+                        <!-- <% } %> -->
+                            <% if(appName){ %>
+                                <span>
+                                    <%= appName %>
+                                </span>
+                                <% } %>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar-custom">
+        <ul class="list-inline float-right mb-0">
+            <li class="list-inline-item dropdown notification-list">
+                <a class="nav-link dropdown-toggle waves-effect waves-light nav-user" data-toggle="dropdown" href="#"
+                    role="button" aria-haspopup="false" aria-expanded="false">
+                    <i class="fa fa-cogs fa-2x" style="margin-top: 24px"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right profile-dropdown " aria-labelledby="Preview">
+                    <a href="<%= site_url %>logout" class="dropdown-item notify-item">
+                        <i class="md md-settings-power"></i> <span>Logout</span>
+                    </a>
+                </div>
+            </li>
+        </ul>
+        <ul class="list-inline menu-left mb-0">
+            <li class="float-left">
+                <button class="button-menu-mobile open-left waves-light waves-effect">
+                    <i class="dripicons-menu"></i>
+                </button>
+            </li>
+        </ul>
+    </nav>
+</div>
+<!-- Top Bar End -->

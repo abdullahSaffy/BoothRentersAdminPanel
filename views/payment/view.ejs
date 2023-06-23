@@ -1,0 +1,133 @@
+<% layout('./layouts/admin') %>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h4 class="page-title">Payment Manager</h4>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="<%= dashboard %>">Dashboard</a></li>
+
+                <li class="breadcrumb-item">
+                    <a href="<%= site_url %>payment">Payment Manager</a>
+                </li>
+                <li class="breadcrumb-item active">View Payment</li>
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card-box">
+
+                <div class="row">
+                    <div class="col-lg-12">
+                     
+                            <div class="row">
+                                <div class="col-lg-10">
+                                    <h4 class="m-t-0 m-b-20 header-title">Payment Details</h4>
+                                </div>
+                            <div class="col-lg-6">
+                                <div class="col-lg-12 m-t-10">
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <p><strong>Req Id :</strong></p>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <p>
+                                                <%= payment.reqId %>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 m-t-10">
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <p><strong>User :</strong></p>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <p>
+                                                <%= payment.user && payment.user.fullName ? payment.user.fullName : "-" %>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 m-t-10">
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <p><strong>Shop:</strong></p>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <p>
+                                                <%= payment.shop && payment.shop.name ? payment.shop.name : "-" %>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 m-t-10">
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <p><strong>Amount:</strong></p>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <p>
+                                                <%= payment.amount %>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 m-t-10">
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <p><strong>Payment Ref. Id :</strong></p>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <p>
+                                                <%= payment.paymentIntentId %>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12 m-t-10">
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <p><strong>Payment Status :</strong></p>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <p>
+                                                <%= payment.paymentStatus %>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12 m-t-10">
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <p><strong>Payment Type :</strong></p>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <p>
+                                                <%= payment.paymentType %>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+               
+                                <div class="col-lg-12 m-t-10">
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <p><strong>Created At :</strong></p>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <%= FUNC.showDateFromString(payment.createdAt, 'MMM DD YYYY' ), %>
+                                        </div>
+                                    </div>
+                                </div>
+            
+                            </div>
+            
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

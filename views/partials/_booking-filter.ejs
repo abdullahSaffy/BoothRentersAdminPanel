@@ -1,0 +1,111 @@
+<div class="row">
+    <div class="col-12">
+        <div class="card-box">
+            <div class="row">
+                <div class="col-lg-3  m-b-20 ">
+                    <label>Date</label>
+                    <input type="text" id="bookingDateRange" class="form-control daterange">
+                </div>
+                <div class="col-lg-3  m-b-20 ">
+                    <label>Customer Name</label>
+                    <input type="text" id="custName" class="form-control">
+                </div>
+                <div class="col-lg-3  m-b-20 ">
+                    <label>Barber Name</label>
+                    <input type="text" id="barberName" class="form-control">
+                </div>
+                <div class="col-lg-3  m-b-20 ">
+                    <label>Location</label>
+                    <input type="text" id="location" class="form-control">
+                    <div id="message" class="text-danger address w-100"></div>
+                    <input type="hidden" name="coordinates" id="addressCoordinates" autocomplete="off">
+                </div>
+    
+                <div class="col-lg-3  m-b-20 ">
+                    <label>Status</label>
+                    <select class="form-control " id="bookingStatus" placeholder="Status" autocomplete="off">
+                        <option value="">-Select-</option>
+                        <option value=not-started>Not Started</option>
+                        <option value=arrived>Arrived</option>
+                        <option value=ongoing>ongoing</option>
+                        <option value=expired>Expired</option>
+                        <option value=failed>Failed</option>
+                        <option value=canceled>Canceled</option>
+                        <option value=completed>Completed</option>
+
+                    </select>
+                </div>
+                <div class="col-lg-3">
+                    <button class="btn btn-success" style="margin-top:29px;" onclick="bookingReportFilter(this);">Submit</button>
+                     <a href="<%= clearUrl %>" class="btn btn-success"
+                         style="margin-top:29px; margin-left: 10px;">Clear</a>
+                 </div>
+             
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/js/daterange.js"></script>
+<script type="text/javascript" src="/js/moment.min.js"></script>
+<script type="text/javascript" src="/js/daterangepicker.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/daterangepicker.css" />
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.0/jquery.validate.min.js"></script>
+<script src="https://cdn.syncfusion.com/js/assets/external/jsrender.min.js"></script>
+<script src="https://cdn.syncfusion.com/16.4.0.52/js/web/ej.web.all.min.js"></script>
+
+
+<script type="text/javascript">
+        $('#location').on('change', function () {
+            if ($('#addressCoordinates').val() == "") {
+            $('#message').html('Please enter a Valid Adderss.').css('color', 'red');
+            }
+            else{
+            $('#message').html('').css('color', 'green');
+            }
+                
+            });
+
+    $(function() {
+        var start = moment().subtract(29, 'days');
+        var end = moment();
+    
+        function cb(start, end) {
+            $('#reportrange span').html(start.format('MMM D, YYYY') + ' - ' + end.format('MMM D, YYYY'));
+            let startDate = start._d;
+            let endDate = end._d;
+            console.log('start----------------<<<<',start._d,'end datee',end._d);
+        }
+    
+        $('#reportrange').daterangepicker({
+            startDate: start,
+            endDate: end,
+            ranges: {
+               'Today': [moment(), moment()],
+               'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+               'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+               'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+               'This Month': [moment().startOf('month'), moment().endOf('month')],
+               'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+            }
+        }, cb);
+
+        cb(start, end);
+
+    });
+
+    function searchAddressInit() {
+            const $input = document.getElementById('location');
+            const $addressCoordinates = $('#addressCoordinates');
+            const autocomplete = new google.maps.places.Autocomplete($input);
+            autocomplete.addListener('place_changed', () => {
+                const place = autocomplete.getPlace();
+                $addressCoordinates.val(`${place.geometry.location.lng().toFixed(6)},${place.geometry.location.lat().toFixed(6)}`);
+                $($input).trigger('change');
+                // $("#add-product").data('validator').element('#searchAddress').valid();
+            });
+        }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= process.env.GOOGLE_PLACES_KEY %>&libraries=places&callback=searchAddressInit"></script>

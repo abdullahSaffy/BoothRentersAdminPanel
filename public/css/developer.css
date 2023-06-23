@@ -1,0 +1,27 @@
+i.fa.fa-pencil, i.fa.fa-trash-o, i.fa.fa-file, .fa.fa-eye {
+    color: #797979;
+}
+
+.hide {
+    display:  none;
+}
+
+.tblStatus {
+    cursor: pointer;
+}
+
+.modal-content {
+    padding: 8px 16px !important;
+}
+
+a {
+    color: #36404A;
+}
+
+.textdc {
+    text-transform: capitalize;
+}
+
+.dataTables_processing {
+    background: transparent;
+}

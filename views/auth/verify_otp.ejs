@@ -1,0 +1,15 @@
+<% layout('layouts/login') -%>
+    <form class="form-horizontal m-t-20" id="otp-verification">
+        <p style="text-align:justify">Enter 4 digit code we sent you via email to continue</p>
+        <div class="form-group  col-12">
+            <input class="form-control" placeholder="Enter Otp" name="otp" id="otp" autocomplete="off">
+            <div class="text-danger otp w-100"></div>
+        </div>
+        <a href="javascript:void(0)" id="resent-otp">Resent Otp</a>
+        <div class="form-group text-center m-t-40 col-12">
+            <button class="btn btn-pink btn-block text-uppercase waves-effect waves-light" type="submit">
+                Submit
+            </button>
+        </div>
+
+    </form>

@@ -1,0 +1,27 @@
+var Messages = {
+    LOGIN_FAILED: "The credentials you supplied were not correct or did not grant access to this resource.",
+    ACCOUNT_INACTIVE: "Your account is inactive",
+    LOGIN_SUCCESS: "You have successfully logged in",
+    SOMETHING_WRONG: "Something went wrong, please try again later.",
+    LOGIN_MISSING_PARAM: "Please insert email or password",
+    INCORRECT_EMAIL: "Please enter registered email",
+    INVALID_CREDENTIAL: "Please enter valid email and password",
+    UNAUTHORIZED: "Please Login",
+    OTP_EXPIRED: "Otp has been expired",
+    OTP_SENT: "Otp sent on registered email",
+    RESET_SUCCESS: "Password reset successfully",
+    INVALID_OTP: "Please enter valid otp",
+    RESET_PASSWORD: "Reset password",
+    OTP_VERIFIED: "Otp verified",
+    DELETE_SUCCESS: "File deleted successfully",
+    SETTING_UPDATE_SUCCESS: "Settings Updated Successfully.",
+    PAGE_UPDATE_SUCCESS:"Content updated successfully",
+    INVALID_DATA:"Please add valid data",
+    MOBILE_NO_ALREADY_EXISTS: "Mobile No already Exists.",
+    EMAIL_EXIST: "Email Already Exists.",
+    BOOKING_NOT_EXIST: "Booking not found.",
+    PAYMENT_NOT_EXIST:"Payment Not Found.",
+    ADDRESS_UPDATED_SUCCESS: "Shop Address Updated Successfully.",
+    REQUEST_NOT_EXIST: "Request Not Exists."
+};
+module.exports.Messages = Messages;

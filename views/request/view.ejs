@@ -1,0 +1,147 @@
+<% layout('./layouts/admin') %>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h4 class="page-title">Request Manager</h4>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="<%= dashboard %>">Dashboard</a></li>
+
+                <li class="breadcrumb-item">
+                    <a href="<%= site_url %>request">Request Manager</a>
+                </li>
+                <li class="breadcrumb-item active">View Request</li>
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card-box">
+
+                <div class="row">
+                    <div class="col-lg-12">
+                     
+                            <div class="row">
+                                <div class="col-lg-10">
+                                    <h4 class="m-t-0 m-b-20 header-title">Request Details</h4>
+                                </div>
+                            <div class="col-lg-6">
+                                <div class="col-lg-12 m-t-10">
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <p><strong>Request Id :</strong></p>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <p>
+                                                <%= request.reqId %>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 m-t-10">
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <p><strong>User :</strong></p>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <p>
+                                                <%= request.user.fullName %>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12 m-t-10">
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <p><strong>Mobile :</strong></p>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <p>
+                                                <%= request.user.mobile %>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 m-t-10">
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <p><strong>Address:</strong></p>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <p>
+                                                <%= request.address %>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 m-t-10">
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <p><strong>Time Slot:</strong></p>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <p>
+                                                <%= request.timeSlot ? request.timeSlot: "N/A" %>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 m-t-10">
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <p><strong>Amount:</strong></p>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <p>
+                                                $<%= request.amount %>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12 m-t-10">
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <p><strong>Status:</strong></p>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <p>
+                                                <%= request.status %>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12 m-t-10">
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <p><strong>Cancel Reason:</strong></p>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <p>
+                                                <%= request.cancelReason ? request.cancelReason: "N/A" %>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+               
+                                <div class="col-lg-12 m-t-10">
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <p><strong>Created At :</strong></p>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <%= FUNC.showDateFromString(request.createdAt, 'MMM DD YYYY' ), %>
+                                        </div>
+                                    </div>
+                                </div>
+            
+                            </div>
+            
+                         
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
